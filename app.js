@@ -102,8 +102,8 @@ app.get('/movies', (req, res) => {
     res.render('movies', { movies: movies });
 });
 
-app.get('/tv', (req, res) => {
-    res.render('tv', { tvShows: tvShows });
+app.get('/tv-shows', (req, res) => {
+    res.render('tv-shows', { tvShows: tvShows });
 });
 
 app.get('/anime', (req, res) => {
@@ -111,7 +111,10 @@ app.get('/anime', (req, res) => {
 });
 
 app.get('/details/:slug', (req, res) => {
-    const selectedTitle = allTitles.find(item => item.slug === req.params.slug);
+    const selectedTitle = allTitles.find(
+        item => item.slug === req.params.slug
+    );
+
     res.render('details', { item: selectedTitle });
 });
 

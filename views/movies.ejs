@@ -14,7 +14,9 @@
     <%- include('partials/navbar') %>
 
         <div class="container page-top">
+
             <h1>Movies</h1>
+
             <input class="search" type="text" placeholder="Search movies...">
 
             <div class="genre-row">
@@ -28,9 +30,10 @@
             <div class="row">
                 <% movies.forEach(movie=> { %>
                     <div class="poster-card">
-                        <a href="/details">
+                        <a href="/details/<%= movie.slug %>">
                             <div class="poster"></div>
                         </a>
+
                         <h3>
                             <%= movie.title %>
                         </h3>
@@ -41,6 +44,7 @@
                     </div>
                     <% }) %>
             </div>
+
         </div>
 </body>
 

@@ -12,12 +12,16 @@
 
 <body>
     <%- include('partials/navbar') %>
+
         <section class="hero">
             <div class="hero-text">
-                <h1>Spider-Man: No Way Home</h1>
-                <p>Welcome to MoodFlix, your entertainment app for movies, TV shows and anime. Discover titles based on
-                    your mood, continue watching and save your favourites.</p>
-                <a class="btn" href="/details">Watch Now</a>
+                <h1>Welcome to MoodFlix</h1>
+                <p>
+                    Discover movies, TV shows and anime based on your mood.
+                    Save your favourites, continue watching and build your own watchlist.
+                </p>
+
+                <a class="btn" href="/details/spiderman">Watch Now</a>
                 <a class="btn grey" href="/watchlist">My List</a>
             </div>
         </section>
@@ -25,6 +29,7 @@
         <div class="container">
 
             <h2>How are you feeling today?</h2>
+
             <div class="mood-row">
                 <button>Happy</button>
                 <button>Sad</button>
@@ -34,6 +39,7 @@
             </div>
 
             <h2>Categories</h2>
+
             <div class="category-row">
                 <a href="/movies">Movies</a>
                 <a href="/tv">TV Shows</a>
@@ -56,7 +62,7 @@
                         </div>
                     </div>
 
-                    <button class="play-btn">▶</button>
+                    <a class="play-btn" href="/details/naruto">▶</a>
                 </div>
 
                 <div class="continue-card">
@@ -64,25 +70,27 @@
 
                     <div class="continue-info">
                         <h3>One Piece</h3>
-                        <p>Episode 455 / 1120</p>
+                        <p>Episode 455 / 1000+</p>
 
                         <div class="progress-bar">
                             <div class="progress-fill two"></div>
                         </div>
                     </div>
 
-                    <button class="play-btn">▶</button>
+                    <a class="play-btn" href="/details/one-piece">▶</a>
                 </div>
 
             </div>
 
             <h2>Movies</h2>
+
             <div class="row">
                 <% movies.forEach(movie=> { %>
                     <div class="poster-card">
-                        <a href="/details">
+                        <a href="/details/<%= movie.slug %>">
                             <div class="poster"></div>
                         </a>
+
                         <h3>
                             <%= movie.title %>
                         </h3>
@@ -94,12 +102,14 @@
             </div>
 
             <h2>TV Shows</h2>
+
             <div class="row">
                 <% tvShows.forEach(show=> { %>
                     <div class="poster-card">
-                        <a href="/details">
+                        <a href="/details/<%= show.slug %>">
                             <div class="poster"></div>
                         </a>
+
                         <h3>
                             <%= show.title %>
                         </h3>
@@ -111,12 +121,14 @@
             </div>
 
             <h2>Anime</h2>
+
             <div class="row">
                 <% anime.forEach(item=> { %>
                     <div class="poster-card">
-                        <a href="/details">
+                        <a href="/details/<%= item.slug %>">
                             <div class="poster"></div>
                         </a>
+
                         <h3>
                             <%= item.title %>
                         </h3>
