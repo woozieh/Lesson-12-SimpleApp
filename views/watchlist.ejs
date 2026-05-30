@@ -19,65 +19,78 @@
 
             <div class="watch-tabs">
                 <button>♥ Favourites</button>
-                <button>✓ Watched</button>
                 <button>▶ Watching</button>
-                <button>⏱ Plan to Watch</button>
+                <button>✓ Watched</button>
             </div>
 
             <h2>Favourites</h2>
 
             <div class="row">
-                <div class="poster-card">
-                    <a href="/details/avengers">
-                        <img src="/images/endgame.jpg" class="poster" alt="Avengers: Endgame">
-                    </a>
+                <% favourites.forEach(item=> { %>
+                    <div class="poster-card">
+                        <a href="/details/<%= item.slug %>">
+                            <img src="<%= item.image %>" class="poster" alt="<%= item.title %>">
+                        </a>
 
-                    <h3>Avengers: Endgame</h3>
-                    <p>Action | 2019</p>
-                    <p>♥ Favourite</p>
-                </div>
+                        <h3>
+                            <%= item.title %>
+                        </h3>
+                        <p>
+                            <%= item.type %> | <%= item.genre %>
+                        </p>
+                        <p>♥ Favourite</p>
+                    </div>
+                    <% }) %>
+            </div>
 
-                <div class="poster-card">
-                    <a href="/details/demon-slayer">
-                        <img src="/images/demonslayer.jpg" class="poster" alt="Demon Slayer">
-                    </a>
+            <h2>Currently Watching</h2>
 
-                    <h3>Demon Slayer</h3>
-                    <p>Anime | Fantasy</p>
-                    <p>♥ Favourite</p>
-                </div>
+            <div class="row">
+                <% watching.forEach(item=> { %>
+                    <div class="poster-card">
+                        <a href="/details/<%= item.slug %>">
+                            <img src="<%= item.image %>" class="poster" alt="<%= item.title %>">
+                        </a>
+
+                        <h3>
+                            <%= item.title %>
+                        </h3>
+                        <p>
+                            <%= item.type %> | <%= item.genre %>
+                        </p>
+                        <p>▶ Watching</p>
+                    </div>
+                    <% }) %>
             </div>
 
             <h2>Watched Recently</h2>
 
             <div class="row">
-                <div class="poster-card">
-                    <a href="/details/wednesday">
-                        <img src="/images/wednesday.jpg" class="poster" alt="Wednesday">
-                    </a>
+                <% watched.forEach(item=> { %>
+                    <div class="poster-card">
+                        <a href="/details/<%= item.slug %>">
+                            <img src="<%= item.image %>" class="poster" alt="<%= item.title %>">
+                        </a>
 
-                    <h3>Wednesday</h3>
-                    <p>Mystery | 2022</p>
-                    <p>✓ Watched</p>
-                </div>
-
-                <div class="poster-card">
-                    <a href="/details/one-piece">
-                        <img src="/images/onepiece.jpg" class="poster" alt="One Piece">
-                    </a>
-
-                    <h3>One Piece</h3>
-                    <p>Anime | Adventure</p>
-                    <p>▶ Watching</p>
-                </div>
+                        <h3>
+                            <%= item.title %>
+                        </h3>
+                        <p>
+                            <%= item.type %> | <%= item.genre %>
+                        </p>
+                        <p>✓ Watched</p>
+                    </div>
+                    <% }) %>
             </div>
 
             <div class="stats-box">
                 <h2>Your Stats</h2>
-                <p>Movies Watched: 35</p>
-                <p>TV Shows Watched: 12</p>
-                <p>Anime Completed: 8</p>
-                <p>Hours Watched: 245</p>
+                <p>Favourites: <%= favourites.length %>
+                </p>
+                <p>Watching: <%= watching.length %>
+                </p>
+                <p>Watched: <%= watched.length %>
+                </p>
             </div>
 
         </div>

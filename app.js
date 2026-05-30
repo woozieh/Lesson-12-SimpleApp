@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
+const watchlist = [];
+const watched = [];
+const watching = [];
+const favourites = [];
 
 const movies = [
     {
@@ -118,17 +122,35 @@ app.get('/anime', (req, res) => {
 });
 
 app.get('/details/:slug', (req, res) => {
-    const selectedTitle = allTitles.find(
-        item => item.slug === req.params.slug
-    );
-
+    const selectedTitle = allTitles.find(item => item.slug === req.params.slug);
     res.render('details', { item: selectedTitle });
 });
 
-app.get('/watchlist', (req, res) => {
-    res.render('watchlist');
+app.post('/add-favourite', (req, res) => {
+    const selectedTitle = allTitles.find(item => item.slug === req.body.slug);
+    favourites.push(selectedTitle);
+    res.redirect('/watchlist');
 });
 
+app.post('/add-watching', (req, res) => {
+    const selectedTitle = allTitles.find(item => item.slug === req.body.slug);
+    watching.push(selectedTitle);
+    res.redirect('/watchlist');
+});
+
+app.post('/add-watched', (req, res) => {
+    const selectedTitle = allTitles.find(item => item.slug === req.body.slug);
+    watched.push(selectedTitle);
+    res.redirect('/watchlist');
+});
+
+app.get('/watchlist', (req, res) => {
+    res.render('watchlist', {
+        favourites: favourites,
+        watching: watching,
+        watched: watched
+    });
+});
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
