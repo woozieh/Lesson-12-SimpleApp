@@ -15,24 +15,26 @@ app.use(express.static('public'));
 const movies = [
     { title: 'Spider-Man: No Way Home', genre: 'Action', year: 2021 },
     { title: 'Interstellar', genre: 'Sci-Fi', year: 2014 },
-    { title: 'Avengers: Endgame', genre: 'Action', year: 2019 }
+    { title: 'Avengers: Endgame', genre: 'Action', year: 2019 },
+    { title: 'Your Name', genre: 'Anime Movie', year: 2016 }
 ];
 
 const tvShows = [
     { title: 'Stranger Things', genre: 'Sci-Fi', year: 2016 },
     { title: 'Wednesday', genre: 'Mystery', year: 2022 },
-    { title: 'Friends', genre: 'Comedy', year: 1994 }
+    { title: 'Friends', genre: 'Comedy', year: 1994 },
+    { title: 'The Office', genre: 'Comedy', year: 2005 }
 ];
 
 const anime = [
     { title: 'Demon Slayer', genre: 'Fantasy', episode: '15 / 26' },
     { title: 'One Piece', genre: 'Adventure', episode: '455 / 1120' },
-    { title: 'Jujutsu Kaisen', genre: 'Supernatural', episode: '20 / 24' }
+    { title: 'Jujutsu Kaisen', genre: 'Supernatural', episode: '20 / 24' },
+    { title: 'Naruto', genre: 'Action', episode: '22 / 220' }
 ];
 
-//Define a route to render the index page
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { movies: movies, tvShows: tvShows, anime: anime });
 });
 
 app.get('/movies', (req, res) => {
@@ -48,13 +50,8 @@ app.get('/anime', (req, res) => {
 });
 
 app.get('/watchlist', (req, res) => {
-    res.render('watchlist', {
-        movies: movies,
-        tvShows: tvShows,
-        anime: anime
-    });
+    res.render('watchlist');
 });
-
 
 
 // Start the server
