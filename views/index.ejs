@@ -51,7 +51,7 @@
             <div class="continue-row">
 
                 <div class="continue-card">
-                    <div class="continue-poster"></div>
+                    <img src="/images/naruto.jpg" class="continue-poster" alt="Naruto">
 
                     <div class="continue-info">
                         <h3>Naruto</h3>
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="continue-card">
-                    <div class="continue-poster"></div>
+                    <img src="/images/onepiece.jpg" class="continue-poster" alt="One Piece">
 
                     <div class="continue-info">
                         <h3>One Piece</h3>
@@ -88,7 +88,7 @@
                 <% movies.forEach(movie=> { %>
                     <div class="poster-card">
                         <a href="/details/<%= movie.slug %>">
-                            <div class="poster"></div>
+                            <img src="<%= movie.image %>" class="poster" alt="<%= movie.title %>">
                         </a>
 
                         <h3>
@@ -107,7 +107,7 @@
                 <% tvShows.forEach(show=> { %>
                     <div class="poster-card">
                         <a href="/details/<%= show.slug %>">
-                            <div class="poster"></div>
+                            <img src="<%= show.image %>" class="poster" alt="<%= show.title %>">
                         </a>
 
                         <h3>
@@ -126,7 +126,7 @@
                 <% anime.forEach(item=> { %>
                     <div class="poster-card">
                         <a href="/details/<%= item.slug %>">
-                            <div class="poster"></div>
+                            <img src="<%= item.image %>" class="poster" alt="<%= item.title %>">
                         </a>
 
                         <h3>

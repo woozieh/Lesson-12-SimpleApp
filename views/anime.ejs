@@ -31,7 +31,7 @@
                 <% anime.forEach(item=> { %>
                     <div class="poster-card">
                         <a href="/details/<%= item.slug %>">
-                            <div class="poster"></div>
+                            <img class="poster" src="<%= item.image %>" alt="<%= item.title %> Poster">
                         </a>
 
                         <h3>

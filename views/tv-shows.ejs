@@ -31,7 +31,7 @@
                 <% tvShows.forEach(show=> { %>
                     <div class="poster-card">
                         <a href="/details/<%= show.slug %>">
-                            <div class="poster"></div>
+                            <img src="<%= show.image %>" class="poster" alt="<%= show.title %>">
                         </a>
 
                         <h3>

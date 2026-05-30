@@ -16,6 +16,7 @@ app.use(express.static('public'));
 const movies = [
     {
         title: 'Spider-Man: No Way Home',
+        image: '/images/spiderman.jpg',
         slug: 'spiderman',
         type: 'Movie',
         genre: 'Action',
@@ -26,6 +27,7 @@ const movies = [
     },
     {
         title: 'Interstellar',
+        image: '/images/interstellar.jpg',
         slug: 'interstellar',
         type: 'Movie',
         genre: 'Sci-Fi',
@@ -36,6 +38,7 @@ const movies = [
     },
     {
         title: 'Avengers: Endgame',
+        image: '/images/endgame.jpg',
         slug: 'avengers',
         type: 'Movie',
         genre: 'Action',
@@ -49,6 +52,7 @@ const movies = [
 const tvShows = [
     {
         title: 'Stranger Things',
+        image: '/images/strangerthings.jpg',
         slug: 'stranger-things',
         type: 'TV Show',
         genre: 'Sci-Fi',
@@ -59,6 +63,7 @@ const tvShows = [
     },
     {
         title: 'Wednesday',
+        image: '/images/wednesday.jpg',
         slug: 'wednesday',
         type: 'TV Show',
         genre: 'Mystery',
@@ -72,6 +77,7 @@ const tvShows = [
 const anime = [
     {
         title: 'Demon Slayer',
+        image: '/images/demonslayer.jpg',
         slug: 'demon-slayer',
         type: 'Anime',
         genre: 'Fantasy',
@@ -82,6 +88,7 @@ const anime = [
     },
     {
         title: 'One Piece',
+        image: '/images/onepiece.jpg',
         slug: 'one-piece',
         type: 'Anime',
         genre: 'Adventure',

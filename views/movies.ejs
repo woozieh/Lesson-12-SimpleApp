@@ -31,7 +31,7 @@
                 <% movies.forEach(movie=> { %>
                     <div class="poster-card">
                         <a href="/details/<%= movie.slug %>">
-                            <div class="poster"></div>
+                            <img class="poster" src="<%= movie.image %>" alt="<%= movie.title %> Poster">
                         </a>
 
                         <h3>
