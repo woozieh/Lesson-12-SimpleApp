@@ -12,26 +12,87 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
+
 const movies = [
-    { title: 'Spider-Man: No Way Home', genre: 'Action', year: 2021 },
-    { title: 'Interstellar', genre: 'Sci-Fi', year: 2014 },
-    { title: 'Avengers: Endgame', genre: 'Action', year: 2019 },
-    { title: 'Your Name', genre: 'Anime Movie', year: 2016 }
+    {
+        title: 'Spider-Man: No Way Home',
+        slug: 'spiderman',
+        type: 'Movie',
+        genre: 'Action',
+        year: 2021,
+        duration: '2h 28m',
+        rating: '8.2/10',
+        description: 'Peter Parker faces problems after his identity is revealed. He asks Doctor Strange for help, but things go wrong and visitors from other worlds appear.'
+    },
+    {
+        title: 'Interstellar',
+        slug: 'interstellar',
+        type: 'Movie',
+        genre: 'Sci-Fi',
+        year: 2014,
+        duration: '2h 49m',
+        rating: '8.6/10',
+        description: 'A group of explorers travel through space to find a new home for humans as Earth becomes harder to live on.'
+    },
+    {
+        title: 'Avengers: Endgame',
+        slug: 'avengers',
+        type: 'Movie',
+        genre: 'Action',
+        year: 2019,
+        duration: '3h 1m',
+        rating: '8.4/10',
+        description: 'The Avengers come together again to undo the damage caused by Thanos and save the universe.'
+    }
 ];
 
 const tvShows = [
-    { title: 'Stranger Things', genre: 'Sci-Fi', year: 2016 },
-    { title: 'Wednesday', genre: 'Mystery', year: 2022 },
-    { title: 'Friends', genre: 'Comedy', year: 1994 },
-    { title: 'The Office', genre: 'Comedy', year: 2005 }
+    {
+        title: 'Stranger Things',
+        slug: 'stranger-things',
+        type: 'TV Show',
+        genre: 'Sci-Fi',
+        year: 2016,
+        duration: '4 Seasons',
+        rating: '8.7/10',
+        description: 'A group of friends discover strange supernatural events happening in their small town.'
+    },
+    {
+        title: 'Wednesday',
+        slug: 'wednesday',
+        type: 'TV Show',
+        genre: 'Mystery',
+        year: 2022,
+        duration: '1 Season',
+        rating: '8.1/10',
+        description: 'Wednesday Addams joins Nevermore Academy and investigates a mystery connected to her family.'
+    }
 ];
 
 const anime = [
-    { title: 'Demon Slayer', genre: 'Fantasy', episode: '15 / 26' },
-    { title: 'One Piece', genre: 'Adventure', episode: '455 / 1120' },
-    { title: 'Jujutsu Kaisen', genre: 'Supernatural', episode: '20 / 24' },
-    { title: 'Naruto', genre: 'Action', episode: '22 / 220' }
+    {
+        title: 'Demon Slayer',
+        slug: 'demon-slayer',
+        type: 'Anime',
+        genre: 'Fantasy',
+        year: 2019,
+        duration: '26 Episodes',
+        rating: '8.6/10',
+        description: 'Tanjiro becomes a demon slayer after his family is attacked and his sister is turned into a demon.'
+    },
+    {
+        title: 'One Piece',
+        slug: 'one-piece',
+        type: 'Anime',
+        genre: 'Adventure',
+        year: 1999,
+        duration: '1000+ Episodes',
+        rating: '9.0/10',
+        description: 'Luffy and his pirate crew travel across the sea to find the legendary treasure called One Piece.'
+    }
 ];
+
+const allTitles = movies.concat(tvShows, anime);
 
 app.get('/', (req, res) => {
     res.render('index', { movies: movies, tvShows: tvShows, anime: anime });
@@ -41,18 +102,22 @@ app.get('/movies', (req, res) => {
     res.render('movies', { movies: movies });
 });
 
-app.get('/tv-shows', (req, res) => {
-    res.render('tv-shows', { tvShows: tvShows });
+app.get('/tv', (req, res) => {
+    res.render('tv', { tvShows: tvShows });
 });
 
 app.get('/anime', (req, res) => {
     res.render('anime', { anime: anime });
 });
 
+app.get('/details/:slug', (req, res) => {
+    const selectedTitle = allTitles.find(item => item.slug === req.params.slug);
+    res.render('details', { item: selectedTitle });
+});
+
 app.get('/watchlist', (req, res) => {
     res.render('watchlist');
 });
-
 
 // Start the server
 const PORT = process.env.PORT || 3000;
