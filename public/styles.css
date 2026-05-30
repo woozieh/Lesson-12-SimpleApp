@@ -1,7 +1,115 @@
-.index-header{
-    margin-top: 50px;
-    width: 100%;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.layout {
     display: flex;
-    justify-content: center;
-    text-align: center;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #111;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 5px;
+}
+
+.sidebar p {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.sidebar a:hover {
+    background-color: #333;
+}
+
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+.search {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.intro {
+    width: 80%;
+    line-height: 1.6;
+}
+
+.mood-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.mood-box button {
+    padding: 12px 20px;
+    border: 1px solid #222;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.category-box {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.category-box a {
+    background-color: white;
+    border: 1px solid #222;
+    padding: 20px 40px;
+    text-decoration: none;
+    color: black;
+    border-radius: 8px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.poster {
+    width: 90px;
+    height: 120px;
+    background-color: #dddddd;
+    border: 1px solid #999;
+}
+
+.save {
+    margin-left: auto;
+    font-size: 30px;
+}
+
+.stats {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
 }
