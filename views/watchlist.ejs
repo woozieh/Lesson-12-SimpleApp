@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Watchlist</title>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <div class="container page-top">
+
+            <h1>My Watchlist</h1>
+
+            <div class="watch-tabs">
+                <button>♥ Favourites</button>
+                <button>✓ Watched</button>
+                <button>▶ Watching</button>
+                <button>⏱ Plan to Watch</button>
+            </div>
+
+            <h2>Favourites</h2>
+
+            <div class="row">
+                <div class="poster-card">
+                    <a href="/details/avengers">
+                        <div class="poster"></div>
+                    </a>
+
+                    <h3>Avengers: Endgame</h3>
+                    <p>Action | 2019</p>
+                    <p>♥ Favourite</p>
+                </div>
+
+                <div class="poster-card">
+                    <a href="/details/demon-slayer">
+                        <div class="poster"></div>
+                    </a>
+
+                    <h3>Demon Slayer</h3>
+                    <p>Anime | Fantasy</p>
+                    <p>♥ Favourite</p>
+                </div>
+            </div>
+
+            <h2>Watched Recently</h2>
+
+            <div class="row">
+                <div class="poster-card">
+                    <a href="/details/wednesday">
+                        <div class="poster"></div>
+                    </a>
+
+                    <h3>Wednesday</h3>
+                    <p>Mystery | 2022</p>
+                    <p>✓ Watched</p>
+                </div>
+
+                <div class="poster-card">
+                    <a href="/details/one-piece">
+                        <div class="poster"></div>
+                    </a>
+
+                    <h3>One Piece</h3>
+                    <p>Anime | Adventure</p>
+                    <p>▶ Watching</p>
+                </div>
+            </div>
+
+            <div class="stats-box">
+                <h2>Your Stats</h2>
+                <p>Movies Watched: 35</p>
+                <p>TV Shows Watched: 12</p>
+                <p>Anime Completed: 8</p>
+                <p>Hours Watched: 245</p>
+            </div>
+
+        </div>
+</body>
+
+</html>
