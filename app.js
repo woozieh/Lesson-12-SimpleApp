@@ -41,8 +41,8 @@ app.get('/movies', (req, res) => {
     res.render('movies', { movies: movies });
 });
 
-app.get('/tv', (req, res) => {
-    res.render('tv', { tvShows: tvShows });
+app.get('/tv-shows', (req, res) => {
+    res.render('tv-shows', { tvShows: tvShows });
 });
 
 app.get('/anime', (req, res) => {
