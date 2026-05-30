@@ -12,26 +12,20 @@
 
 <body>
     <%- include('partials/navbar') %>
-        <div class="layout">
-            <h2>
-                MoodFlix
-            </h2>
-            <p>Your World of Movies, TV Shows, and Anime!</p>
-        </div>
-        <div class="main">
-            <input class="search" type="text" placeholder="Search for movies, TV Shows, Anime...">
-            <h1>
-                Welcome to MoodFlix!
-            </h1>
-            <p class="description">
-                Step into CineVerse, a place where movies, TV shows, and anime come together in one app.
-                Browse trending entertainment, discover new titles based on your mood, and keep track of
-                what you love to watch.
-            </p>
-            <h3>
-                How are you feeling today?
-            </h3>
-            <div class="mood-box">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Spider-Man: No Way Home</h1>
+                <p>Welcome to MoodFlix, your entertainment app for movies, TV shows and anime. Discover titles based on
+                    your mood, continue watching and save your favourites.</p>
+                <a class="btn" href="/details">Watch Now</a>
+                <a class="btn grey" href="/watchlist">My List</a>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <h2>How are you feeling today?</h2>
+            <div class="mood-row">
                 <button>Happy</button>
                 <button>Sad</button>
                 <button>Excited</button>
@@ -39,23 +33,64 @@
                 <button>Scared</button>
             </div>
 
-            <h3>Categories</h3>
-
-            <div class="category-box">
+            <h2>Categories</h2>
+            <div class="category-row">
                 <a href="/movies">Movies</a>
                 <a href="/tv">TV Shows</a>
                 <a href="/anime">Anime</a>
             </div>
 
-            <h3>Continue Watching</h3>
-
-            <div class="card">
-                <div class="poster"></div>
-                <div>
-                    <h3>Naruto</h3>
-                    <p>Episode 22 / 220</p>
-                </div>
+            <h2>Movies</h2>
+            <div class="row">
+                <% movies.forEach(movie=> { %>
+                    <div class="poster-card">
+                        <a href="/details">
+                            <div class="poster"></div>
+                        </a>
+                        <h3>
+                            <%= movie.title %>
+                        </h3>
+                        <p>
+                            <%= movie.genre %> | <%= movie.year %>
+                        </p>
+                    </div>
+                    <% }) %>
             </div>
+
+            <h2>TV Shows</h2>
+            <div class="row">
+                <% tvShows.forEach(show=> { %>
+                    <div class="poster-card">
+                        <a href="/details">
+                            <div class="poster"></div>
+                        </a>
+                        <h3>
+                            <%= show.title %>
+                        </h3>
+                        <p>
+                            <%= show.genre %> | <%= show.year %>
+                        </p>
+                    </div>
+                    <% }) %>
+            </div>
+
+            <h2>Anime</h2>
+            <div class="row">
+                <% anime.forEach(item=> { %>
+                    <div class="poster-card">
+                        <a href="/details">
+                            <div class="poster"></div>
+                        </a>
+                        <h3>
+                            <%= item.title %>
+                        </h3>
+                        <p>
+                            <%= item.genre %>
+                        </p>
+                    </div>
+                    <% }) %>
+            </div>
+
         </div>
 </body>
 
